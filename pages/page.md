@@ -1,5 +1,3 @@
-- [ ]  Bananas
-
-- [ ]  Milk
-
-- [ ]  Chicken
+- Bananas
+- Milk
+- Chicken

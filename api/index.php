@@ -4,9 +4,16 @@ require dirname(__DIR__, 1) . '/vendor/erusev/parsedown/Parsedown.php';
 // get from file
 // echo dirname(__DIR__, 1)."/pages/page.md";
 $fp = fopen(dirname(__DIR__, 1)."/pages/page.md", "r") or die("Unable to open file!");
-
-$test = fread($fp, filesize(dirname(__DIR__, 1)."/pages/page.md"));
+$file = fread($fp, filesize(dirname(__DIR__, 1)."/pages/page.md"));
 fclose($fp);
+
+$finalString = "";
+// pre-parse
+foreach(preg_split("/((\r?\n)|(\r\n?))/", $file) as $line){
+    $name = str_replace("- ", "", $line);
+    $finalString .= "<input type='checkbox' name=$name value=$name><label for=$name>".$name."</label><br>";
+} 
+
 $Parsedown = new Parsedown();
 ?>
 
@@ -55,8 +62,7 @@ $Parsedown = new Parsedown();
     <main>
         <div>
             <?php 
-                $text = $Parsedown->text($test);
-                echo "$text";
+                echo $Parsedown->text($finalString);
             ?>
         </div>
     </main>
