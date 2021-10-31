@@ -4,6 +4,8 @@ A static PHP page generator
 
 For my shopping lists
 
+Live demo: [shopping-list-ebon.vercel.app/api](https://shopping-list-ebon.vercel.app/api)
+
 ## Screenshot
 
 ![screenshot](screenshot.png)
