@@ -1,7 +1,13 @@
 <?php
+require dirname(__DIR__, 1) . '/vendor/autoload.php';
+require dirname(__DIR__, 1) . '/vendor/erusev/parsedown/Parsedown.php';
 // get from file
-$test = "Hi\n";
-echo $test;
+// echo dirname(__DIR__, 1)."/pages/page.md";
+$fp = fopen(dirname(__DIR__, 1)."/pages/page.md", "r") or die("Unable to open file!");
+
+$test = fread($fp, filesize(dirname(__DIR__, 1)."/pages/page.md"));
+fclose($fp);
+$Parsedown = new Parsedown();
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +55,8 @@ echo $test;
     <main>
         <div>
             <?php 
-                echo $test;
+                $text = $Parsedown->text($test);
+                echo "$text";
             ?>
         </div>
     </main>

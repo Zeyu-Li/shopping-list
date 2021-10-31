@@ -1,0 +1,17 @@
+{
+    "name": "andrew/shopping-list",
+    "require": {
+        "erusev/parsedown": "^1.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Andrew\\ShoppingList\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Zeyu-Li",
+            "email": "zeyu.li23@gmail.com"
+        }
+    ]
+}
