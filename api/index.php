@@ -11,7 +11,7 @@ $finalString = "";
 // pre-parse
 foreach(preg_split("/((\r?\n)|(\r\n?))/", $file) as $line){
     $name = str_replace("- ", "", $line);
-    $finalString .= "<input type='checkbox' name=$name value=$name class='big-checkbox'><label for=$name> ".$name."</label></input><br>";
+    $finalString .= "<input type='checkbox' name='$name' value='$name' class='big-checkbox'><label for='$name'> ".$name."</label></input><br>";
 } 
 
 $Parsedown = new Parsedown();
